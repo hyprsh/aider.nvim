@@ -53,7 +53,7 @@ local function add_buffers_to_command(command)
   for _, buf in ipairs(buffers) do
     if vim.api.nvim_buf_is_loaded(buf) then
       local bufname = vim.api.nvim_buf_get_name(buf)
-      if not bufname:match('^term:') and not bufname:match('NeogitConsole') then
+      if not bufname:match('^term:') and not bufname:match('NeogitConsole') and not bufname:match('^oil:') then
         command = command .. " " .. bufname
       end
     end
